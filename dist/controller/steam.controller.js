@@ -22,10 +22,4 @@ export class SteamController {
             return res.json(info);
         });
     }
-    static getGameAll(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const info = yield SteamService.getGameAll();
-            return res.json(info);
-        });
-    }
 }

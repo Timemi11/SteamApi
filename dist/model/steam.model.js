@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import SteamAPI from "steamapi";
 import dotenv from "dotenv";
 dotenv.config();
-const steam = new SteamAPI(process.env.STEAM_API || "");
+const steam = new SteamAPI("80631961452FFECB91BA8D6639E9B892");
 // เกมแนะนำ
 export const featuredGames = steam
     .getFeaturedGames({
@@ -26,4 +26,6 @@ export const SearchGame = (gameId) => __awaiter(void 0, void 0, void 0, function
     });
     return info;
 });
-export const allGame = steam.getAppList().then((res) => res);
+// export const allGame = steam.getAppList().then((res: any) => {
+//   return res;
+// });

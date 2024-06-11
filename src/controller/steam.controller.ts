@@ -11,8 +11,8 @@ export class SteamController {
     const info = await SteamService.getGameFeature();
     return res.json(info);
   }
-  static async getGameAll(req: Request, res: Response) {
-    const info = await SteamService.getGameAll();
-    return res.json(info);
-  }
+  // static async getGameAll(req: Request, res: Response) {
+  //   const info = await SteamService.getGameAll();
+  //   return res.json(info);
+  // }
 }

@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { SearchGame, allGame, featuredGames } from "../model/steam.model";
+import { SearchGame, featuredGames } from "../model/steam.model";
 export class SteamService {
     static getGameByAppId(appId) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -31,13 +31,6 @@ export class SteamService {
         return __awaiter(this, void 0, void 0, function* () {
             const gameData = yield featuredGames;
             return gameData;
-        });
-    }
-    //  ใช้ไม่ได้ ติด large payload
-    static getGameAll() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const all = yield allGame;
-            return all;
         });
     }
 }

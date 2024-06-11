@@ -1,5 +1,5 @@
 import { MapInfo } from "../dto/items.dto";
-import { SearchGame, allGame, featuredGames } from "../model/steam.model";
+import { SearchGame, featuredGames } from "../model/steam.model";
 
 export class SteamService {
   static async getGameByAppId(appId: number) {
@@ -24,8 +24,8 @@ export class SteamService {
   }
 
   //  ใช้ไม่ได้ ติด large payload
-  static async getGameAll() {
-    const all = await allGame;
-    return all;
-  }
+  // static async getGameAll() {
+  //   const all = await allGame;
+  //   return all;
+  // }
 }
