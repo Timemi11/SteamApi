@@ -2,7 +2,7 @@ import SteamAPI from "steamapi";
 import dotenv from "dotenv";
 dotenv.config();
 
-const steam = new SteamAPI(process.env.STEAM_API || "");
+const steam = new SteamAPI("80631961452FFECB91BA8D6639E9B892");
 
 // เกมแนะนำ
 export const featuredGames = steam
