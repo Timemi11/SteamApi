@@ -25,13 +25,12 @@ const featuredGames = steam
   })
   .then((res: any) => res);
 
-const SearchGame = (gameId: number) => {
-  steam
-    .getGameDetails(gameId, {
-      currency: "th",
-      language: "thai",
-    })
-    .then((res: any) => res);
+const SearchGame = async (gameId: number) => {
+  const info = await steam.getGameDetails(gameId, {
+    currency: "th",
+    language: "thai",
+  });
+  return info;
 };
 
 app.get("/", async (_req: Request, res: Response) => {
@@ -40,8 +39,8 @@ app.get("/", async (_req: Request, res: Response) => {
 });
 
 app.get("/gameId", async (req: Request, res: Response) => {
-  const gameId = req.body;
-  const gameInfo = await SearchGame(gameId);
+  const { appId } = req.body;
+  const gameInfo = await SearchGame(appId);
   return res.json(gameInfo);
 });
 

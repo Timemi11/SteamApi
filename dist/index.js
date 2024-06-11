@@ -27,21 +27,20 @@ const featuredGames = steam
     language: "thai",
 })
     .then((res) => res);
-const SearchGame = (gameId) => {
-    steam
-        .getGameDetails(gameId, {
+const SearchGame = (gameId) => __awaiter(void 0, void 0, void 0, function* () {
+    const info = yield steam.getGameDetails(gameId, {
         currency: "th",
         language: "thai",
-    })
-        .then((res) => res);
-};
+    });
+    return info;
+});
 app.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield featuredGames;
     res.json(data);
 }));
 app.get("/gameId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const gameId = req.body;
-    const gameInfo = yield SearchGame(gameId);
+    const { appId } = req.body;
+    const gameInfo = yield SearchGame(appId);
     return res.json(gameInfo);
 }));
 app.listen(3001, () => {
