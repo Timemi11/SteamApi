@@ -1,25 +1,18 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-import { SteamService } from "../services/steam.service";
-export class SteamController {
-    static getGameById(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const appId = Number(req.params.appid);
-            const info = yield SteamService.getGameByAppId(appId);
-            return res.json(info);
-        });
-    }
-    static getGameFeatures(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const info = yield SteamService.getGameFeature();
-            return res.json(info);
-        });
-    }
-}
+"use strict";
+// import { Request, Response } from "express";
+// import { SteamService } from "../services/steam.service";
+// export class SteamController {
+//   static async getGameById(req: Request, res: Response) {
+//     const appId = Number(req.params.appid);
+//     const info = await SteamService.getGameByAppId(appId);
+//     return res.json(info);
+//   }
+//   static async getGameFeatures(req: Request, res: Response) {
+//     const info = await SteamService.getGameFeature();
+//     return res.json(info);
+//   }
+// static async getGameAll(req: Request, res: Response) {
+//   const info = await SteamService.getGameAll();
+//   return res.json(info);
+// }
+// }
