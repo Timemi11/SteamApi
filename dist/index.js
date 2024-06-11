@@ -27,6 +27,7 @@ const featuredGames = steam
     language: "thai",
 })
     .then((res) => res);
+// ค้นหาเกม
 const SearchGame = (gameId) => __awaiter(void 0, void 0, void 0, function* () {
     const info = yield steam.getGameDetails(gameId, {
         currency: "th",
@@ -34,14 +35,24 @@ const SearchGame = (gameId) => __awaiter(void 0, void 0, void 0, function* () {
     });
     return info;
 });
+const allGame = () => __awaiter(void 0, void 0, void 0, function* () {
+    const info = yield steam.getAppList();
+    return info;
+});
+// เกมแนะนำ
 app.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield featuredGames;
     res.json(data);
 }));
+// ค้นหาเกม
 app.get("/gameId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { appId } = req.body;
     const gameInfo = yield SearchGame(appId);
     return res.json(gameInfo);
+}));
+app.get("/all", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const all = yield allGame();
+    return res.json(all);
 }));
 app.listen(3001, () => {
     console.log("server run on localhost:3001");

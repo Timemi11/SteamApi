@@ -25,6 +25,7 @@ const featuredGames = steam
   })
   .then((res: any) => res);
 
+// ค้นหาเกม
 const SearchGame = async (gameId: number) => {
   const info = await steam.getGameDetails(gameId, {
     currency: "th",
@@ -33,18 +34,27 @@ const SearchGame = async (gameId: number) => {
   return info;
 };
 
+const allGame = async () => {
+  const info = await steam.getAppList();
+  return info;
+};
+
+// เกมแนะนำ
 app.get("/", async (_req: Request, res: Response) => {
   const data = await featuredGames;
   res.json(data);
 });
-
+// ค้นหาเกม
 app.get("/gameId", async (req: Request, res: Response) => {
   const { appId } = req.body;
   const gameInfo = await SearchGame(appId);
   return res.json(gameInfo);
 });
+app.get("/all", async (req: Request, res: Response) => {
+  const all = await allGame();
+  return res.json(all);
+});
 
 app.listen(3001, () => {
   console.log("server run on localhost:3001");
 });
-//
