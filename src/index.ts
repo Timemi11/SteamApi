@@ -50,6 +50,7 @@ app.get("/gameId", async (req: Request, res: Response) => {
   const gameInfo = await SearchGame(appId);
   return res.json(gameInfo);
 });
+// all
 app.get("/all", async (req: Request, res: Response) => {
   const all = await allGame();
   return res.json(all);

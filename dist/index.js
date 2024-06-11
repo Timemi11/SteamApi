@@ -50,6 +50,7 @@ app.get("/gameId", (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     const gameInfo = yield SearchGame(appId);
     return res.json(gameInfo);
 }));
+// all
 app.get("/all", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const all = yield allGame();
     return res.json(all);
