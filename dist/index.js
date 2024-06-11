@@ -7,27 +7,42 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import SteamAPI from 'steamapi';
-import dotenv from 'dotenv';
-import express from 'express';
+import SteamAPI from "steamapi";
+import dotenv from "dotenv";
+import express from "express";
 import cors from "cors";
 dotenv.config();
 const app = express();
 app.use(cors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const steam = new SteamAPI(process.env.STEAM_API);
 // เกมแนะนำ
-const featuredGames = steam.getFeaturedGames({
-    currency: 'th',
-    language: 'thai'
-}).then((res) => res);
+const featuredGames = steam
+    .getFeaturedGames({
+    currency: "th",
+    language: "thai",
+})
+    .then((res) => res);
+const SearchGame = (gameId) => {
+    steam
+        .getGameDetails(gameId, {
+        currency: "th",
+        language: "thai",
+    })
+        .then((res) => res);
+};
 app.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield featuredGames;
     res.json(data);
+}));
+app.get("/gameId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const gameId = req.body;
+    const gameInfo = yield SearchGame(gameId);
+    return res.json(gameInfo);
 }));
 app.listen(3001, () => {
     console.log("server run on localhost:3001");
