@@ -21,7 +21,4 @@ export const SearchGame = async (gameId: number) => {
   return info;
 };
 
-export const allGame = async () => {
-  const info = await steam.getAppList();
-  return info;
-};
+export const allGame = steam.getAppList().then((res: any) => res);

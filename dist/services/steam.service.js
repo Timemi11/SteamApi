@@ -36,7 +36,7 @@ export class SteamService {
     //  ใช้ไม่ได้ ติด large payload
     static getGameAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            const all = yield allGame();
+            const all = yield allGame;
             return all;
         });
     }

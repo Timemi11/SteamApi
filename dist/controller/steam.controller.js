@@ -12,20 +12,20 @@ export class SteamController {
     static getGameById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const appId = Number(req.params.appid);
-            const Info = yield SteamService.getGameByAppId(appId);
-            return res.json(Info);
+            const info = yield SteamService.getGameByAppId(appId);
+            return res.json(info);
         });
     }
     static getGameFeatures(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const Info = yield SteamService.getGameFeature();
-            return res.json(Info);
+            const info = yield SteamService.getGameFeature();
+            return res.json(info);
         });
     }
     static getGameAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const Info = yield SteamService.getGameAll();
-            return res.json(Info);
+            const info = yield SteamService.getGameAll();
+            return res.json(info);
         });
     }
 }

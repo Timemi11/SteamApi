@@ -25,7 +25,7 @@ export class SteamService {
 
   //  ใช้ไม่ได้ ติด large payload
   static async getGameAll() {
-    const all = await allGame();
+    const all = await allGame;
     return all;
   }
 }

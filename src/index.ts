@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import SteamRoute from "./router/steam.route";
-
 const app = express();
 app.use(
   cors({

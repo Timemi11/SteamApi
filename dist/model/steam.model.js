@@ -26,7 +26,4 @@ export const SearchGame = (gameId) => __awaiter(void 0, void 0, void 0, function
     });
     return info;
 });
-export const allGame = () => __awaiter(void 0, void 0, void 0, function* () {
-    const info = yield steam.getAppList();
-    return info;
-});
+export const allGame = steam.getAppList().then((res) => res);
