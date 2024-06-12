@@ -44,10 +44,9 @@ app.get("/", async (_req: Request, res: Response) => {
 app.get("/:appId", async (req: Request, res: Response) => {
   const appId = Number(req.params.appId);
   const gameData = await SearchGame(appId);
-
   const gameInfo: MapInfo = {
     name: gameData.name,
-    appid: gameData.steam_appid,
+    appId: gameData.steam_appid,
     image: gameData.header_image,
     price: {
       formattedPrice:

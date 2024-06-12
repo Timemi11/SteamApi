@@ -44,7 +44,7 @@ app.get("/:appId", (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     const gameData = yield SearchGame(appId);
     const gameInfo = {
         name: gameData.name,
-        appid: gameData.steam_appid,
+        appId: gameData.steam_appid,
         image: gameData.header_image,
         price: {
             formattedPrice: ((_a = gameData.price_overview) === null || _a === void 0 ? void 0 : _a.final_formatted) === undefined

@@ -3,7 +3,7 @@ export type Price = {
 };
 export type MapInfo = {
   name: string;
-  appid: number;
+  appId: number;
   image: string;
   price: Price;
 };
